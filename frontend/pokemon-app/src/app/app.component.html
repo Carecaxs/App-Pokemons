@@ -1,0 +1,6 @@
+<!-- Mostrar el navbar solo si el usuario está autenticado -->
+<app-navbar *ngIf="authService.isLoggedIn()"></app-navbar>
+
+<div [ngClass]="{ 'with-navbar': authService.isLoggedIn() }">
+  <router-outlet />
+</div>

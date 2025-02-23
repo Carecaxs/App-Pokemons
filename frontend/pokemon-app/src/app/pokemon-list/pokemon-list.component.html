@@ -1,0 +1,126 @@
+<!-- Notificación flotante tipo modal -->
+<div *ngIf="showNotification" class="toast-notification-backdrop">
+  <div class="toast-notification">
+    <p>{{ notificationMessage }}</p>
+  </div>
+</div>
+
+<div *ngIf="pokemons.length > 0; else noPokemons" class="container mt-4">
+  <div class="row justify-content-center">
+    <div
+      *ngFor="
+        let pokemon of pokemons
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: page,
+                totalItems: totalItems
+              }
+      "
+      class="col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
+    >
+      <div class="card" (click)="viewPokemonDetails(pokemon.id, mode)">
+        <div class="content">
+          <!-- Imagen del Pokémon -->
+
+          <img
+            class="pokemon-img"
+            [src]="pokemon.imageUrl"
+            alt="{{ pokemon.imageUrl }}"
+          />
+          <!-- Nombre del Pokémon -->
+          <span class="pokemon-name">{{ pokemon.name | uppercase }}</span>
+          <button
+            class="btn btn-action-pokemon btn-detalles btn-sm mt-4"
+            (click)="viewPokemonDetails(pokemon.id, mode)"
+          >
+            Ver detalles
+          </button>
+
+          <!-- Si es modo 'allPokemons', muestra "Agregar" -->
+          <button
+            *ngIf="mode === 'allPokemons'"
+            class="btn btn-action-pokemon btn-add btn-sm mt-2"
+            (click)="addPokemonToMyList(pokemon.url); $event.stopPropagation()"
+          >
+            Agregar Pokemon
+          </button>
+
+          <!-- Si es modo 'myPokemons', muestra "Eliminar" -->
+          <button
+            *ngIf="mode === 'myPokemons'"
+            class="btn btn-action-pokemon btn-delete btn-sm mt-2"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmDeleteModal"
+            (click)="setPokemonToDelete(pokemon.id); $event.stopPropagation()"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles de paginación -->
+  <div *ngIf="pokemons.length > 0" class="d-flex justify-content-center mt-4">
+    <pagination-controls
+      (pageChange)="onPageChange($event)"
+      [maxSize]="7"
+      [directionLinks]="true"
+      [autoHide]="false"
+      [nextLabel]="'Siguiente →'"
+      [previousLabel]="'← Anterior'"
+    >
+    </pagination-controls>
+  </div>
+</div>
+
+<!-- Plantilla para mostrar si no hay Pokémon -->
+<ng-template #noPokemons>
+  <div class="no-pokemon-container">
+    <h3 class="text-center text-white mt-3">No tienes Pokémon agregados</h3>
+    <p class="text-center text-white">
+      ¡Explora y agrega nuevos Pokémon a tu colección!
+    </p>
+  </div>
+</ng-template>
+
+<!-- Modal de Confirmación Eliminar-->
+<div
+  class="modal fade"
+  id="confirmDeleteModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Confirmar Eliminación
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que quieres eliminar este Pokémon?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="removePokemonFromMyList()"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

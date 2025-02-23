@@ -1,0 +1,96 @@
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%">
+    <div class="card-body">
+      <h2 class="card-title mb-4 text-center">Inicio de sesión</h2>
+
+      <!-- Mostrar mensaje de error si existe -->
+      <div *ngIf="message" class="alert alert-danger">
+        {{ message }}
+      </div>
+
+      <!-- Formulario con ngSubmit -->
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            autocomplete="username"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            #emailModel="ngModel"
+          />
+
+          <!-- validations for email -->
+          <div
+            *ngIf="
+              emailModel.invalid && (emailModel.dirty || emailModel.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="emailModel.errors?.['required']">
+              El correo es requerido.
+            </div>
+            <div *ngIf="emailModel.errors?.['pattern']">
+              El formato del correo es inválido.
+            </div>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            autocomplete="current-password"
+            #passwordModel="ngModel"
+          />
+
+          <!-- validations for password -->
+          <div
+            *ngIf="
+              passwordModel.invalid &&
+              (passwordModel.dirty || passwordModel.touched)
+            "
+            class="text-danger"
+          >
+            La contraseña es requerida.
+          </div>
+        </div>
+
+        <!-- Botón Iniciar Sesión -->
+        <div class="d-grid gap-2 mt-3">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="loginForm.invalid"
+          >
+            Iniciar sesión
+          </button>
+        </div>
+      </form>
+
+      <hr />
+
+      <!-- Enlace a Registrarse -->
+      <div class="text-center">
+        <p class="mb-0">
+          ¿No tienes cuenta?
+          <!-- Puedes usar un routerLink o un método del componente -->
+          <a class="text-decoration-none" [routerLink]="['/pokemon/register']"
+            >Regístrate</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

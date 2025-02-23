@@ -1,0 +1,37 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+}
+
+/* Estilos para el botón los botones de las cards */
+button.btn.btn-action-pokemon {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button.btn.btn-detalles:hover {
+  background-color: #ff2288;
+  color: white;
+  transform: scale(1.1);
+}
+
+button.btn.btn-delete:hover {
+  background-color: #b41313;
+  color: white;
+  transform: scale(1.1);
+}
+
+button.btn.btn-add:hover {
+  background-color: #0480e6;
+  color: white;
+  transform: scale(1.1);
+}

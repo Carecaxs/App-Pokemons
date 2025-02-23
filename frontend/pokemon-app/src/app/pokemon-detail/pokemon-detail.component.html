@@ -1,0 +1,89 @@
+<div class="pokemon-details-container" *ngIf="pokemon">
+  <!-- Botón de Volver -->
+  <button
+    class="btn btn-md btn-action-pokemon btn-detalles back-btn"
+    (click)="goBack()"
+  >
+    Volver
+  </button>
+
+  <!-- Encabezado -->
+  <header class="pokemon-header">
+    <h1>{{ pokemon.name | uppercase }}</h1>
+    <div class="pokemon-images">
+      <img
+        *ngIf="pokemon.sprites?.front_default"
+        [src]="pokemon.sprites.front_default"
+        [alt]="pokemon.name"
+      />
+      <img
+        *ngIf="pokemon.sprites?.back_default"
+        [src]="pokemon.sprites.back_default"
+        [alt]="pokemon.name"
+      />
+      <img
+        *ngIf="pokemon.sprites.front_shiny"
+        [src]="pokemon.sprites.front_shiny"
+        [alt]="pokemon.name"
+      />
+    </div>
+  </header>
+
+  <!-- Información General -->
+  <section class="pokemon-section">
+    <h2>Información General</h2>
+    <p><strong>Experiencia Base:</strong> {{ pokemon.base_experience }}</p>
+    <p><strong>Altura:</strong> {{ pokemon.height / 10 }} m</p>
+    <p><strong>Peso:</strong> {{ pokemon.weight / 10 }} kg</p>
+  </section>
+
+  <!-- Estadísticas -->
+  <section class="pokemon-section">
+    <h2>Estadísticas</h2>
+    <ul class="pokemon-stats">
+      <li *ngFor="let stat of pokemon.stats | keyvalue">
+        {{ stat.key?.toString() | uppercase }}:
+        <strong>{{ stat.value }}</strong>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Tipos -->
+  <section class="pokemon-section">
+    <h2>Tipo(s)</h2>
+    <div class="pokemon-types">
+      <span *ngFor="let type of pokemon.types" class="badge badge-primary">
+        {{ type | uppercase }}
+      </span>
+    </div>
+  </section>
+
+  <!-- Habilidades -->
+  <section class="pokemon-section">
+    <h2>Habilidades</h2>
+    <ul>
+      <li *ngFor="let ability of pokemon.abilities">
+        {{ ability | uppercase }}
+      </li>
+    </ul>
+  </section>
+
+  <!-- Movimientos -->
+  <section class="pokemon-section">
+    <h2>Movimientos</h2>
+    <ul class="pokemon-moves">
+      <li *ngFor="let move of pokemon.moves">
+        {{ move | uppercase }}
+      </li>
+    </ul>
+  </section>
+
+  <!-- Sonidos -->
+  <section class="pokemon-section">
+    <h2>Sonidos</h2>
+    <audio controls>
+      <source [src]="pokemon.sound" type="audio/ogg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+  </section>
+</div>
