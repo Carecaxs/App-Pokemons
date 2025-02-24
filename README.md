@@ -1,7 +1,7 @@
-
 ## Descripción General App Pokémons
 
 La aplicación permite a los usuarios:
+
 - **Registrarse e iniciar sesión** (usando autenticación basada en JWT).
 - Ver una lista paginada de todos los Pokémons obtenidos desde la API oficial.
 - Agregar Pokémons a una biblioteca personal (almacenada en la base de datos del backend).
@@ -15,26 +15,22 @@ La aplicación permite a los usuarios:
 - [Node.js] version v22.14.0
 - [Angular CLI] version 19.1.7
 
-
-
-
 ### Backend
 
 El backend de **PokemonAPI** se encarga de:
+
 - Gestionar usuarios (registro, login, etc.).
 - Administrar la información de los Pokémons y sus relaciones (estadísticas, tipos, habilidades, movimientos, imágenes).
 - Proveer endpoints seguros mediante autenticación JWT.
 - Consumir y exponer APIs propias que se integran con el frontend.
 
 1. Navega a la carpeta `backend/PokemonAPI`.
-2. Ejecuta el archivo BD_POKEMON.sql en SQL Server para crear la base de datos y las tablas necesarias. 
-2. Abre la solución en Visual Studio
-3. Revisa el archivo `appsettings.json` para asegurarte de que la cadena de conexión a tu base de datos SQL Server esté correctamente configurada.
-4. Restaura los paquetes de NuGet ejecutando: dotnet restore
-5.Compila la solución: dotnet build
-6. Ejecutar la solucion en http (asegurese de ejecutar en http porque sino se abirira en un puerto diferente y no funcionara las apis creadas)
-
-
+2. Ejecuta el archivo BD_POKEMON.sql en SQL Server para crear la base de datos y las tablas necesarias.
+3. Abre la solución en Visual Studio
+4. Revisa el archivo `appsettings.json` para asegurarte de que la cadena de conexión a tu base de datos SQL Server esté correctamente configurada.
+5. Restaura los paquetes de NuGet ejecutando: dotnet restore
+6. Compila la solución: dotnet build
+7. Ejecutar la solucion en http (asegurese de ejecutar en http porque sino se abirira en un puerto diferente y no funcionara las apis creadas)
 
 ### Frontend
 
@@ -45,10 +41,9 @@ Además, se integra con la API oficial de PokéAPI para obtener la lista de Pok�
 2. Instala las dependencias: npm install
 3. Inicia la aplicación Angular ng s
 
-
-////////////  la aplicacion del backend debe de estar ejecutandose cuando ejecute la pagina web ya que si no la ejecutamos no vamos a poder acceder a las apis creadas. Ademas la bd la debe de ejecutar antes de todo ////////////
-
+//////////// la aplicacion del backend debe de estar ejecutandose cuando ejecute la pagina web ya que si no la ejecutamos no vamos a poder acceder a las apis creadas. Ademas la bd la debe de ejecutar antes de todo ////////////
 
 ### Pruebas
-En este proyecto se realizaron pruebas unitarias únicamente en los servicios
-ng test --include="src/app/services/**/*.spec.ts"
+
+En este proyecto se realizaron pruebas unitarias únicamente en los servicios.
+Comando para ejecutar las pruebas: ng test --include="src/app/services/\*_/_.spec.ts"
