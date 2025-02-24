@@ -1,83 +1,102 @@
-/* Ajuste para centrar las tarjetas */
+/* ============================= */
+/* ESTILOS PARA LAS TARJETAS DE POKÉMON */
+/* ============================= */
+
+/* Estilo base para las tarjetas */
 .card {
-  width: 190px;
-  height: 254px;
-  background: #171717;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0px 0px 3px 1px #00000088;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  width: 190px; /* Ancho fijo para mantener el tamaño uniforme */
+  height: 254px; /* Altura fija */
+  background: #171717; /* Fondo oscuro */
+  display: flex; /* Activa flexbox */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  overflow: hidden; /* Oculta cualquier contenido que se salga del tamaño */
+  position: relative; /* Permite manejar los efectos internos */
+  box-shadow: 0px 0px 3px 1px #00000088; /* Agrega un sutil sombreado */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: transform 0.3s ease-in-out; /* Suaviza el efecto de hover */
 }
 
+/* Efecto al pasar el mouse por la tarjeta */
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
 }
 
+/* Contenido dentro de la tarjeta */
 .card .content {
-  border-radius: 5px;
-  background: #171717;
-  width: 186px;
+  border-radius: 5px; /* Bordes redondeados */
+  background: #171717; /* Fondo oscuro para resaltar el contenido */
+  width: 186px; /* Ajuste de tamaño para encajar en la tarjeta */
   height: 250px;
-  z-index: 1;
-  padding: 20px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  z-index: 1; /* Asegura que el contenido esté sobre otros efectos */
+  padding: 20px; /* Espaciado interno */
+  color: white; /* Texto blanco */
+  display: flex; /* Activa flexbox */
+  flex-direction: column; /* Organiza el contenido en columna */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  text-align: center; /* Centra el texto */
 }
 
+/* Efecto de brillo en el contenido */
 .content::before {
-  opacity: 0;
-  transition: opacity 300ms;
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 300ms; /* Suaviza la transición */
   content: " ";
   display: block;
-  background: white;
+  background: white; /* Brillo blanco */
   width: 5px;
   height: 50px;
   position: absolute;
-  filter: blur(50px);
+  filter: blur(50px); /* Difumina el brillo */
   overflow: hidden;
 }
 
+/* Activa el brillo al pasar el mouse */
 .card:hover .content::before {
   opacity: 1;
 }
 
+/* ============================= */
+/*  EFECTOS Y ANIMACIONES EN LAS TARJETAS */
+/* ============================= */
+
+/* Efecto de borde en la tarjeta */
 .card::before {
-  opacity: 0;
+  opacity: 0; /* Inicialmente invisible */
   content: " ";
   position: absolute;
   display: block;
   width: 80px;
   height: 360px;
-  background: linear-gradient(#ff2288, #387ef0);
-  transition: opacity 300ms;
-  animation: rotation_9018 8000ms infinite linear;
-  animation-play-state: paused;
+  background: linear-gradient(#ff2288, #387ef0); /* Degradado de colores */
+  transition: opacity 300ms; /* Suaviza la transición */
+  animation: rotation_9018 8000ms infinite linear; /* Rotación continua */
+  animation-play-state: paused; /* Inicia la animación pausada */
 }
 
+/* Activa el efecto al pasar el mouse */
 .card:hover::before {
   opacity: 1;
-  animation-play-state: running;
+  animation-play-state: running; /* Inicia la animación */
 }
 
+/* Efecto de desenfoque en la tarjeta */
 .card::after {
   position: absolute;
   content: " ";
   display: block;
   width: 250px;
   height: 360px;
-  background: #17171733;
-  backdrop-filter: blur(50px);
+  background: #17171733; /* Fondo semitransparente */
+  backdrop-filter: blur(50px); /* Aplica desenfoque */
 }
 
-/* Animación de rotación */
+/* ============================= */
+/*  ANIMACIÓN DE ROTACIÓN */
+/* ============================= */
+
+/* Hace que el borde gire continuamente */
 @keyframes rotation_9018 {
   0% {
     transform: rotate(0deg);
@@ -87,46 +106,63 @@
   }
 }
 
-/* Imagen del Pokémon */
+/* ============================= */
+/*  IMAGEN DEL POKÉMON */
+/* ============================= */
 .pokemon-img {
   width: 100px;
   height: 100px;
-  object-fit: contain;
-  transition: transform 0.3s ease-in-out;
+  object-fit: contain; /* Asegura que la imagen se ajuste sin recortes */
+  transition: transform 0.3s ease-in-out; /* Suaviza el efecto al hacer hover */
 }
 
+/* Efecto de aumento al pasar el mouse */
 .card:hover .pokemon-img {
   transform: scale(1.2);
 }
 
-/* Nombre del Pokémon */
+/* ============================= */
+/*  NOMBRE DEL POKÉMON */
+/* ============================= */
 .pokemon-name {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 10px;
   color: #fff;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out; /* Suaviza la transición de color */
 }
 
+/* Cambia el color del nombre al pasar el mouse */
 .card:hover .pokemon-name {
   color: #ff2288;
 }
 
+/* ============================= */
+/*  TÍTULO DE LA LISTA DE POKÉMON */
+/* ============================= */
 h2.text-center {
-  font-size: 2rem;
+  font-size: 2rem; /* Tamaño del título */
   font-weight: bold;
   color: #ffffff; /* Texto blanco */
-  background: linear-gradient(45deg, #ffcc00, #ff6600); /* Degradado naranja */
-  padding: 10px 20px;
-  border-radius: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    45deg,
+    #ffcc00,
+    #ff6600
+  ); /* Degradado de colores */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra en el texto */
   text-align: center;
 }
 
-/* Fondo del modal para que se vea encima de todo */
+/* ============================= */
+/*  NOTIFICACIONES Y MODALES */
+/* ============================= */
+
+/* Fondo del modal para asegurar visibilidad */
 .toast-notification-backdrop {
-  position: fixed;
+  position: fixed; /* Se fija en pantalla */
   top: 0;
   left: 0;
   width: 100%;
@@ -138,7 +174,7 @@ h2.text-center {
   z-index: 9999; /* Asegura que se muestre sobre todos los elementos */
 }
 
-/* Notificación centrada */
+/* Estilo de la notificación */
 .toast-notification {
   background: white;
   color: #333;
@@ -147,10 +183,10 @@ h2.text-center {
   font-size: 1.5rem;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  animation: fadeInOut 3s ease-in-out forwards;
+  animation: fadeInOut 3s ease-in-out forwards; /* Animación de aparición */
 }
 
-/* Animación de aparición y desaparición */
+/* Animación de notificación emergente */
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -170,13 +206,17 @@ h2.text-center {
   }
 }
 
+/* ============================= */
+/*  MENSAJE CUANDO NO HAY POKÉMON */
+/* ============================= */
+
 .no-pokemon-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
   border-radius: 10px;
   width: 80%;
   max-width: 500px;
@@ -184,12 +224,14 @@ h2.text-center {
   margin-right: auto;
 }
 
+/* Imagen cuando no hay Pokémon */
 .no-pokemon-img {
   width: 150px;
   height: auto;
   opacity: 0.8;
 }
 
+/* Texto en color blanco */
 .text-white {
   color: white;
 }

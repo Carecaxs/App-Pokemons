@@ -1,20 +1,19 @@
 :host {
-  display: block;
-  min-height: 100vh;
+  display: block; /* Asegura que el componente ocupe todo el ancho disponible */
+  min-height: 100vh; /* Altura mínima igual al 100% de la pantalla */
   background-image: url("https://wallpapercave.com/wp/wp8053173.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover; /* Asegura que la imagen de fondo cubra toda el área */
+  background-position: center; /* Centra la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
 }
 
-/* Opcional: Si deseas agregar una capa oscura */
 :host::before {
-  content: "";
-  position: absolute;
+  content: ""; /* Elemento vacío para aplicar el fondo */
+  position: absolute; /* Se posiciona de forma absoluta sobre el fondo */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.5); /* Capa semitransparente negra */
+  z-index: -1; /* Se coloca detrás de los elementos del componente */
 }

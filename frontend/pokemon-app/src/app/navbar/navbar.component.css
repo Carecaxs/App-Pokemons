@@ -1,7 +1,7 @@
 @media (max-width: 991.98px) {
   /* En modo colapsado, agrega padding a la lista de navegación */
   .navbar-collapse .navbar-nav {
-    padding-left: 1.5rem; /* Ajusta este valor según necesites */
+    padding-left: 1.5rem;
   }
 }
 

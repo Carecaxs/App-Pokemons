@@ -1,34 +1,42 @@
-/* Contenedor principal */
+/* ============================= */
+/*  CONTENEDOR PRINCIPAL */
+/* ============================= */
+
 .pokemon-details-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: #171717;
-  border-radius: 10px;
+  max-width: 800px; /* Limita el ancho del contenedor para que no sea demasiado grande */
+  margin: auto; /* Centra el contenedor horizontalmente */
+  padding: 20px; /* Agrega un espacio interno para que los elementos no queden pegados a los bordes */
+  background: #171717; /* Fondo oscuro para resaltar la información */
+  border-radius: 10px; /* Esquinas redondeadas para un diseño más moderno */
 }
 
-/* Botón de volver */
+/* ============================= */
+/*  BOTÓN DE VOLVER */
+/* ============================= */
 .back-btn {
-  display: block;
-  margin-bottom: 15px;
+  display: block; /* Asegura que el botón ocupe toda la línea */
+  margin-bottom: 15px; /* Espacio entre el botón y el resto del contenido */
 }
 
-/* Encabezado con el nombre e imágenes */
+/* ============================= */
+/*  ENCABEZADO CON NOMBRE E IMÁGENES */
+/* ============================= */
+
 .pokemon-header {
-  text-align: center;
-  margin-bottom: 10px;
+  text-align: center; /* Centra el nombre del Pokémon y las imágenes */
+  margin-bottom: 10px; /* Espacio entre el encabezado y la siguiente sección */
 }
 
 .pokemon-header h1 {
-  font-size: 2.5rem;
-  color: #ff2288;
+  font-size: 2.5rem; /* Tamaño grande para resaltar el nombre del Pokémon */
+  color: #ff2288; /* Color llamativo para el nombre */
 }
 
 .pokemon-images {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  display: flex; /* Activa Flexbox para organizar las imágenes horizontalmente */
+  justify-content: center; /* Centra las imágenes horizontalmente */
+  gap: 10px; /* Espacio entre las imágenes */
+  margin-top: 10px; /* Espacio superior para separarlas del título */
 }
 
 .pokemon-images img {
@@ -37,69 +45,82 @@
   object-fit: contain; /* Asegura que la imagen no se recorte */
 }
 
-/* Secciones */
+/* ============================= */
+/*  SECCIONES GENERALES */
+/* ============================= */
+
 .pokemon-section {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  background: white; /* Fondo blanco para diferenciar cada sección */
+  padding: 15px; /* Espacio interno */
+  margin-bottom: 15px; /* Espacio entre cada sección */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para un efecto de elevación */
 }
 
 .pokemon-section h2 {
-  font-size: 1.8rem;
-  color: #333;
-  border-bottom: 2px solid #ff2288;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  font-size: 1.8rem; /* Tamaño de fuente grande para títulos */
+  color: #333; /* Color oscuro para que sea fácil de leer */
+  border-bottom: 2px solid #ff2288; /* Línea decorativa debajo del título */
+  padding-bottom: 5px; /* Espacio debajo del texto del título */
+  margin-bottom: 10px; /* Espacio entre el título y el contenido de la sección */
 }
 
 .pokemon-section p {
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Tamaño adecuado para la lectura de información */
 }
 
-/* Estadísticas */
+/* ============================= */
+/*  ESTILOS PARA LAS ESTADÍSTICAS */
+/* ============================= */
+
 .pokemon-stats {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding por defecto de la lista */
 }
 
 .pokemon-stats li {
-  font-size: 1.2rem;
-  padding: 5px 0;
+  font-size: 1.2rem; /* Tamaño adecuado para las estadísticas */
+  padding: 5px 0; /* Espaciado vertical entre cada estadística */
 }
 
-/* Tipos */
+/* ============================= */
+/*  ESTILOS PARA LOS TIPOS */
+/* ============================= */
+
 .badge {
-  display: inline-block;
-  padding: 7px 12px;
-  margin: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
-  background: #ff2288;
-  color: rgb(252, 252, 252);
+  display: inline-block; /* Permite que los elementos estén en línea */
+  padding: 7px 12px; /* Espaciado interno */
+  margin: 4px; /* Espaciado externo entre etiquetas */
+  font-size: 1rem; /* Tamaño de fuente adecuado */
+  font-weight: bold; /* Resalta el texto */
+  border-radius: 5px; /* Bordes redondeados */
+  background: #ff2288; /* Color de fondo llamativo */
+  color: rgb(252, 252, 252); /* Color de texto en blanco para contraste */
 }
 
-/* Movimientos */
+/* ============================= */
+/*  ESTILOS PARA LOS MOVIMIENTOS */
+/* ============================= */
 .pokemon-moves {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding por defecto */
 }
 
 .pokemon-moves li {
-  display: inline-block;
-  padding: 7px 10px;
-  margin: 5px;
-  background: #eee;
-  border-radius: 5px;
-  font-size: 1rem;
+  display: inline-block; /* Permite que los movimientos estén en línea */
+  padding: 7px 10px; /* Espaciado interno */
+  margin: 5px; /* Espaciado externo */
+  background: #eee; /* Fondo gris claro para resaltar cada movimiento */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de fuente adecuado */
 }
 
-/* Sonidos */
+/* ============================= */
+/*  ESTILOS PARA LOS SONIDOS */
+/* ============================= */
 audio {
-  width: 100%;
-  margin-top: 10px;
+  width: 100%; /* Hace que el reproductor de audio ocupe el ancho disponible */
+  margin-top: 10px; /* Espaciado superior */
 }
 
 /* RESPONSIVE */
@@ -110,6 +131,6 @@ audio {
   }
 
   .pokemon-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
   }
 }

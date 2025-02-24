@@ -25,7 +25,7 @@
             #emailModel="ngModel"
           />
 
-          <!-- validations for email -->
+          <!-- validaciones para email -->
           <div
             *ngIf="
               emailModel.invalid && (emailModel.dirty || emailModel.touched)
@@ -55,7 +55,7 @@
             #passwordModel="ngModel"
           />
 
-          <!-- validations for password -->
+          <!-- validaciones para password -->
           <div
             *ngIf="
               passwordModel.invalid &&
@@ -85,7 +85,7 @@
       <div class="text-center">
         <p class="mb-0">
           ¿No tienes cuenta?
-          <!-- Puedes usar un routerLink o un método del componente -->
+
           <a class="text-decoration-none" [routerLink]="['/pokemon/register']"
             >Regístrate</a
           >
