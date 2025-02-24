@@ -46,4 +46,4 @@ Además, se integra con la API oficial de PokéAPI para obtener la lista de Pok�
 ### Pruebas
 
 En este proyecto se realizaron pruebas unitarias únicamente en los servicios.
-Comando para ejecutar las pruebas: ng test --include="src/app/services/\*_/_.spec.ts"
+Comando para ejecutar las pruebas: ng test --include="src/app/services/**/*.spec.ts"
